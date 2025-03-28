@@ -74,6 +74,32 @@ A Model Context Protocol (MCP) server for interacting with Tandoor Recipe Manage
    }
    ```
 
+
+5. If you want everything autoApprove...
+```json
+      "autoApprove": [
+        "add_shopping_list_item",
+        "create_tandoor_meal_plan",
+        "create_tandoor_recipe",
+        "get_foods",
+        "get_keywords",
+        "get_meal_plans",
+        "get_meal_types",
+        "get_recipe_details",
+        "get_recipes",
+        "get_recipes",
+        "get_shopping_list",
+        "get_units",
+        "remove_shopping_list_item",
+        "update_shopping_list_item"
+      ]
+
+```
+
+6. Add `./.clinerules` to your project directory
+- optionally also add `./memory-bank` with a markdown or text file list of foods you like or dislike in case you'd like suggestions for meals from the assistant.
+
+
 ## Available Tools
 
 ### create_tandoor_recipe
