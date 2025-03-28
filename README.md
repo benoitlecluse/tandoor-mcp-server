@@ -1,6 +1,6 @@
 # Tandoor MCP Server
 
-A Model Context Protocol (MCP) server for interacting with [Tandoor Recipe Manager]([url](https://github.com/TandoorRecipes/recipes)).
+A Model Context Protocol (MCP) server for interacting with [Tandoor Recipe Manager](https://github.com/TandoorRecipes/recipes).
 
 ## Current Status
 
