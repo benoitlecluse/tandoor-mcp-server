@@ -12,9 +12,13 @@ import axios, { AxiosInstance } from 'axios';
 
 // --- Configuration ---
 const TANDOOR_URL = process.env.TANDOOR_URL;
-const TANDOOR_API_TOKEN = process.env.TANDOOR_API_TOKEN;
+// check if TANDOOR_API_TOKEN is empty, and if so, copy TANDOOR_API_KEY to TANDOOR_API_TOKEN
+// cline likes to use KEY for the token, but Tandoor uses TOKEN
+const TANDOOR_API_TOKEN = process.env.TANDOOR_API_TOKEN
+  ? process.env.TANDOOR_API_TOKEN
+  : process.env.TANDOOR_API_KEY; 
 
-if (!TANDOOR_URL) {
+  if (!TANDOOR_URL) {
   console.error("[Error] TANDOOR_URL environment variable is required.");
   process.exit(1);
 }
