@@ -2,6 +2,8 @@
 
 A Model Context Protocol (MCP) server for interacting with [Tandoor Recipe Manager](https://github.com/TandoorRecipes/recipes).
 
+<img src="icon.jpg" width=20% height=20% alt="img generated with Gemini">
+
 ## Current Status
 
 - ✅ **create_tandoor_recipe**: Successfully implemented and tested
