@@ -60,6 +60,11 @@ interface TandoorMealType {
     name: string;
 }
 
+interface TandoorMealTypeResult {
+  results: TandoorMealType[];
+  count: number;
+}
+
 interface TandoorRecipeOverview {
     id: number;
     name: string;
@@ -363,9 +368,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         // 1. Find Meal Type ID
         console.error(`[API] GET /api/meal-type/ - Fetching meal types`);
-        const mealTypesResponse = await apiClient.get<TandoorMealType[]>('/api/meal-type/');
+        const mealTypesResponse = await apiClient.get<TandoorMealTypeResult>('/api/meal-type/');
         console.error(`[API] GET /api/meal-type/ - Status: ${mealTypesResponse.status}, Data: ${JSON.stringify(mealTypesResponse.data)}`); // Log received data
-        const mealType = mealTypesResponse.data.find(mt => mt.name.toLowerCase() === mealTypeName.toLowerCase());
+        const mealType = mealTypesResponse.data.results.find(mt => mt.name.toLowerCase() === mealTypeName.toLowerCase());
 
         if (!mealType) {
             console.error(`[Error] Meal type "${mealTypeName}" not found in received data.`); // More specific log
@@ -645,7 +650,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         try {
           const response = await apiClient.get(url);
           console.error(`[API] GET ${url} - Status: ${response.status}`);
-          const mealTypes = response.data || [];
+          const mealTypes = response.data.results || [];
           const resultText = mealTypes.length > 0
             ? `Available Meal Types:\n${mealTypes.map((mt: any) => `ID: ${mt.id} - Name: ${mt.name}`).join('\n')}`
             : 'No meal types found.';
